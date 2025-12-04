@@ -2,10 +2,10 @@ import { io, Socket } from 'socket.io-client';
 import type{ GameState, LeaderboardPlayer } from '../types/game';
 
 
-const SOCKET_SERVER_URL = import.meta.env.SOCKET_SERVER_URL;
+const VITE_SOCKET_SERVER_URL = import.meta.env.VITE_SOCKET_SERVER_URL;
 
 
-export const socket: Socket = io(SOCKET_SERVER_URL);
+export const socket: Socket = io(VITE_SOCKET_SERVER_URL);
 
 
 export const connectSocket = (): void => {
