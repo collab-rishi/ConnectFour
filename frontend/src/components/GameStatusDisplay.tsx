@@ -85,7 +85,7 @@ const GameStatusDisplay: React.FC<GameStatusDisplayProps> = ({
             
             {myPlayer && status !== GameStatus.WAITING && (
                 <p className="player-info">
-                    You are **{players.findIndex(p => p.id === myPlayer.id) === 0 ? 'Player 1' : 'Player 2'}** (Token: {players.findIndex(p => p.id === myPlayer.id)! + 1})
+                    You are {players.findIndex(p => p.id === myPlayer.id) === 0 ? 'Player 1' : 'Player 2'} (Token: {players.findIndex(p => p.id === myPlayer.id)! + 1})
                 </p>
             )}
         </div>
