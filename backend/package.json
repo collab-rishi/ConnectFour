@@ -16,7 +16,7 @@
   "author": "thund3rhawk",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^6.1.0",
+    "@prisma/client": "^6.19.0",
     "axios": "^1.7.9",
     "dotenv": "^16.6.1",
     "express": "^4.21.2",
@@ -38,7 +38,7 @@
     "globals": "^15.14.0",
     "husky": "^9.1.7",
     "nodemon": "^3.1.9",
-    "prisma": "^6.1.0",
+    "prisma": "^6.19.0",
     "ts-jest": "^29.2.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
