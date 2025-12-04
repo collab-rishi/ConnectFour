@@ -1,8 +1,10 @@
 import { io, Socket } from 'socket.io-client';
 import type{ GameState, LeaderboardPlayer } from '../types/game';
+import dotenv from "dotenv";
+dotenv.config();
 
 
-const SOCKET_SERVER_URL = 'http://localhost:3000';
+const SOCKET_SERVER_URL = process.env.SOCKET_SERVER_URL;
 
 
 export const socket: Socket = io(SOCKET_SERVER_URL);
