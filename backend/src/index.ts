@@ -6,6 +6,10 @@ import { PORT } from './config';
 import dotenv from "dotenv";
 dotenv.config();
 
+const allowedOrigins: string[] = [
+  process.env.URL1!,
+  process.env.URL2!
+]
 
 const startServer = () => {
 
@@ -16,7 +20,7 @@ const startServer = () => {
   
   const io = new Server(server, {
     cors: {
-      origin: process.env.FRONTEND_URL, 
+      origin: allowedOrigins, 
       methods: ["GET", "POST"]
     }
   });
