@@ -1,0 +1,38 @@
+datasource db {
+  provider = "postgresql" 
+  url      = env("DATABASE_URL")
+}
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Enter your schema design here and run 'npx prisma db push' after every update to the schema
+// Also see the docs here: https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch
+
+model Player {
+  id         String @id @db.VarChar(50) 
+  username   String @unique @db.VarChar(100)
+  wins       Int    @default(0)
+  createdAt  DateTime @default(now())
+
+  gamesAsP1 GameHistory[] @relation("PlayerOne")
+  gamesAsP2 GameHistory[] @relation("PlayerTwo")
+  gamesWon  GameHistory[] @relation("Winner")
+}
+
+model GameHistory {
+  id             String    @id @default(uuid()) @db.Uuid
+  status         String    @db.VarChar(20)
+  duration       Int?
+  boardSnapshot  Json?
+  isBotGame      Boolean
+  playedAt       DateTime  @default(now())
+
+  winnerId String? 
+  p1Id     String
+  p2Id     String
+
+  winner Player? @relation("Winner", fields: [winnerId], references: [id])
+  p1     Player  @relation("PlayerOne", fields: [p1Id], references: [id])
+  p2     Player  @relation("PlayerTwo", fields: [p2Id], references: [id])
+}
