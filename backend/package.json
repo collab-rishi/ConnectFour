@@ -6,14 +6,14 @@
   "scripts": {
     "prepare": "husky",
     "lint": "eslint",
-    "build": "prisma generate && tsc",
+    "build": "npx prisma generate && tsc",
     "test": "jest",
     "typecheck": "tsc --pretty --noEmit",
     "start": "npx ts-node src/index.ts",
     "dev": "nodemon -r ts-node src/index.ts",
     "db:migrate": "cross-env NODE_PATH=dist/ node --env-file=.env dist/db/migration.js"
   },
-  "author": "thund3rhawk",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.19.0",
